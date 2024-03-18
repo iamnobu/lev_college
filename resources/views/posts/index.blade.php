@@ -5,7 +5,9 @@
         <title>Blog</title>
 
         <!-- Fonts -->
+
         <link href="https://fonts.googleapis.cpm/css?family=Nunito:200,600" rel="stylesheet">
+
 
         
     </head>
