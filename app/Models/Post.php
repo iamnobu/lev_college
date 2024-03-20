@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use Illuminate\Http\Request;
-use App\Models\Post;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class PostController extends Controller
+class Post extends Model
 {
-    public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+    use HasFactory;
+    
+    public function getPaginateByLimit(int $limit_count = 5)
     {
 
-        return view('posts.index')->with(['posts' => $post->getByLimit()]);
+        return $this->orderby('updated_at', 'DESC')->paginate($limit_count);
     }
    
 }
-?>
