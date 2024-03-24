@@ -12,14 +12,14 @@
     </head>
     <body class="antialiased">
         <h1>Blog Name</h1>
-        <a href="/posts/create">create</a>
+        <a href="/posts/create">[create]</a>
         <div class='posts'>
             @foreach($posts as $post)
                 <div class='post'>
                    <h2 class='title'>
                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                    </h2>
-                   <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                   <a href="/categories/{{ $post->category->id}}">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
@@ -28,6 +28,9 @@
                     </form>
                 </div>
             @endforeach
+        </div>
+        <div class="footer">
+            <a href="/">戻る</a>
         </div>
         <div class='paginate'>{{ $posts->links()}}</div>
         <script>
@@ -39,5 +42,6 @@
                 }
             }
         </script>
+        
     </body>
 </html>

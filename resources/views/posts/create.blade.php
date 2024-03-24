@@ -21,7 +21,15 @@
                <textarea name="post[body]" placeholder="今日も一日お疲れ様でした。">{{ old('post.body') }}</textarea>
                <p class="body__erroe" style="color:red">{{ $errors->first('post.body') }}</p>
            </div>
-           <input type="submit" value="store">  
+           <div class="category">
+               <h2>Category</h2>
+               <select name="post[category_id]">
+                   @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                   @endforeach    
+               </select>
+           </div>
+           <input type="submit" value="store">
        </form>
         <div class="footer">
             <a href="/">戻る</a>
